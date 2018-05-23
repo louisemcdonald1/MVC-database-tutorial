@@ -1,0 +1,38 @@
+﻿@model MVCMovies.Models.Movie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<h4>Movie</h4>
+<hr/>
+<dl class="dl-horizontal">
+    @*This creates a label for the data, using the column heading
+        from the database table*@
+    <dt>@Html.DisplayNameFor(m => m.Title)</dt>
+    @*@Html.DisplayFor displays the data stored in the property, but doesn't 
+    allow editing*@
+    <dd>@Html.DisplayFor(m => m.Title)</dd>
+    <dt>@Html.DisplayNameFor(m => m.ReleaseDate)</dt>
+    <dd>@Html.DisplayFor(m => m.ReleaseDate)</dd>
+    <dt>@Html.DisplayNameFor(m => m.Genre)</dt>
+    <dd>@Html.DisplayFor(m => m.Genre)</dd>
+    <dt>@Html.DisplayNameFor(m => m.Price)</dt>
+    <dd>@Html.DisplayFor(m => m.Price)</dd>
+</dl>
+@*The form passes the record id back to the POST Delete action
+    method*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-11">
+            <input type="submit" class="btn btn-default" value="Delete Record" />
+        </div>
+    </div>
+}
+@*Link for user to return to Index action method and view*@
+@Html.ActionLink("Back to List", "Index")

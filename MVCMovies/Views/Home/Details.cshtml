@@ -1,0 +1,31 @@
+﻿@model MVCMovies.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<h4>Movie</h4>
+<hr/>
+<dl class="dl-horizontal">
+    @*@Html.DisplayNameFor displays a label for the property
+    using the database column heading*@
+    <dt>@Html.DisplayNameFor(m => m.Title)</dt>  
+    @*@Html.DisplayFor displays the data stored in the property,
+        but doesn't allow editing*@
+    <dd>@Html.DisplayFor(m => m.Title)</dd>
+    <dt>@Html.DisplayNameFor(m => m.ReleaseDate)</dt>
+    <dd>@Html.DisplayFor(m => m.ReleaseDate)</dd>
+    <dt>@Html.DisplayNameFor(m => m.Genre)</dt>
+    <dd>@Html.DisplayFor(m => m.Genre)</dd>
+    <dt>@Html.DisplayNameFor(m => m.Price)</dt>
+    <dd>@Html.DisplayFor(m => m.Price)</dd>
+</dl>
+<p>
+    @*Link for user to edit current record - passes record id to 
+        Edit action method*@
+    @Html.ActionLink("Edit Record", "Edit", new { id = Model.Id }) |
+    @*Link for user to return to Index action method and view*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
